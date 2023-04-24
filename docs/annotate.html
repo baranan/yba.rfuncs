@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Annotation Example</title>
+	<link rel="stylesheet" href="https://baranan.github.io/yba.rfuncs/annotation.css">
+</head>
+<body>
+	<div id="drop-area">
+		<h1>Drag and drop a file here</h1>
+		<p>Or click to select a file to annotate</p>
+		<input type="file" id="file-input">
+	</div>
+
+	<button id="add-annotation-button">Add Annotation</button>
+	<button id="save-annotations-button">Save annotated file</button>
+
+	<script src="https://baranan.github.io/yba.rfuncs/annotation.js"></script>
+	<script>
+		// Get references to the drop area and file input
+		const dropArea = document.querySelector('#drop-area');
+		const fileInput = document.querySelector('#file-input');
+
+		// Listen for the drop event on the drop area
+		dropArea.addEventListener('drop', handleDrop);
+
+		// Listen for the change event on the file input
+		fileInput.addEventListener('change', handleFileSelect);
+
+		function handleDrop(event) {
+			event.preventDefault();
+			event.stopPropagation();
+
+			const files = event.dataTransfer.files;
+
+			if (files.length > 0) {
+				handleFile(files[0]);
+			}
+		}
+
+		function handleFileSelect(event) {
+			const files = event.target.files;
+
+			if (files.length > 0) {
+				handleFile(files[0]);
+			}
+		}
+
+		function handleFile(file) {
+			// Read the contents of the file
+			const reader = new FileReader();
+
+			reader.onload = function(event) {
+				const contents = event.target.result;
+
+				// Append the file contents to the HTML
+				const pre = document.createElement('pre');
+				pre.innerText = contents;
+				document.body.appendChild(pre);
+
+				// Add the annotation CSS and JS includes
+				const css = document.createElement('link');
+				css.rel = 'stylesheet';
+				css.href = 'https://baranan.github.io/yba.rfuncs/annotation.css';
+				document.head.appendChild(css);
+
+				const script = document.createElement('script');
+				script.src = 'https://baranan.github.io/yba.rfuncs/annotation.js';
+				document.body.appendChild(script);
+			}
+
+			reader.readAsText(file);
+		}
+	</script>
+</body>
+</html>
