@@ -1,0 +1,37 @@
+#add-annotation-button {
+	position: fixed;
+	bottom: 55px;
+	right: 10px;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 9999;
+}
+#save-annotations-button {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	padding: 10px;
+	background-color: #FFAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	z-index: 9999;
+}
+
+.ybaannotation {
+	position: absolute;
+	background-color: #F0E68C;
+	border: 2px solid #000;
+	border-radius: 5px;
+	padding: 10px;
+	z-index: 9999;
+	cursor: move;
+}
+.ybaannotation input {
+	width: 100%;
+}
