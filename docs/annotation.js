@@ -1,5 +1,9 @@
-var button = document.getElementById('add-annotation-button');
+//var button = document.getElementById('add-annotation-button');
 
+  var button = document.createElement('button');
+  button.id = 'add-annotation-button';
+  button.innerHTML = 'Add Annotation';
+  
 button.addEventListener('click', function() {
 	var annotationDiv = document.createElement('div');
 	annotationDiv.className = 'ybaannotation';
@@ -69,7 +73,14 @@ button.addEventListener('click', function() {
 	});
 });
 
-var saveButton = document.getElementById('save-annotations-button');
+document.body.appendChild(button);
+
+
+//var saveButton = document.getElementById('save-annotations-button');
+
+var saveButton = document.createElement('button');
+saveButton.id = 'save-annotations-button';
+saveButton.innerHTML = 'Save annotated file';
 
 saveButton.addEventListener('click', function() {saveAnnotations();});
 
@@ -111,3 +122,5 @@ function saveAnnotations() {
   link.href = URL.createObjectURL(blob);
   link.click();
 }
+
+document.body.appendChild(saveButton);
