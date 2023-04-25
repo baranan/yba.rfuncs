@@ -19,11 +19,35 @@
 	<script>
 		// Get references to the drop area and file input
 		const dropArea = document.querySelector('#drop-area');
+		
+		  // Add event listeners for drag and drop events
+		  dropArea.addEventListener('dragenter', handleDragEnter);
+		  dropArea.addEventListener('dragover', handleDragOver);
+		  dropArea.addEventListener('dragleave', handleDragLeave);
+		  dropArea.addEventListener('drop', handleDrop);
+
+		  // Define the event handlers
+		  function handleDragEnter(e) {
+		    // Prevent default behavior to allow drop
+		    e.preventDefault();
+		    // Add a class to highlight the drop area
+		    dropArea.classList.add('highlight');
+		  }
+
+		  function handleDragOver(e) {
+		    // Prevent default behavior to allow drop
+		    e.preventDefault();
+		    // Add a class to highlight the drop area
+		    dropArea.classList.add('highlight');
+		  }
+
+		  function handleDragLeave(e) {
+		    // Remove the class that highlights the drop area
+		    dropArea.classList.remove('highlight');
+		  }
+
+		
 		const fileInput = document.querySelector('#file-input');
-
-		// Listen for the drop event on the drop area
-		dropArea.addEventListener('drop', handleDrop);
-
 		// Listen for the change event on the file input
 		fileInput.addEventListener('change', handleFileSelect);
 
