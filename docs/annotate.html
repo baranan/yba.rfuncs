@@ -80,6 +80,32 @@
     </script>
 </head>
 <body>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .styled-div {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 20px;
+			margin: 0 auto;
+            width: 80%;
+            background-color: cornflowerblue;
+        }
+        #drop-area {
+            background-color: white;
+			margin: 0 auto;
+            width: 80%;
+        }
+    </style>
+	<br/><br/>
+    <div class="styled-div">
+        <b>Annotate a local HTML file</b> <br/>
+        After you drop your file here, I will open a new tab with your file and a button for annotating your html file. <br/>
+        You can save your file locally with the "Save annotated file" button. <br/>     
+    </div>
+	<br/><br/>
     <div id="drop-area" ondrop="handleDrop(event)" ondragover="event.preventDefault()">
         Drop an HTML file here
     </div>
